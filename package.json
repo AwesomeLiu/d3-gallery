@@ -1,7 +1,7 @@
 {
-  "name": "febe",
+  "name": "d3gallery",
   "version": "1.0.0",
-  "description": "Frontend Base Environment",
+  "description": "D3 Gallery",
   "main": "index.js",
   "scripts": {
     "prod": "webpack --config config/webpack.prod.js",
@@ -14,11 +14,14 @@
     "classnames": "^2.2.6",
     "d3": "^5.9.2",
     "lodash": "^4.17.11",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
