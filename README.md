@@ -200,7 +200,8 @@ npm install clean-webpack-plugin --save-dev
 ```json
 {
   "presets": [
-    ["@babel/preset-env", { "modules": false }]
+    ["@babel/preset-env", { "modules": false }],
+    "@babel/react"
   ]
 }
 ```
