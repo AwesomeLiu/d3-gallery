@@ -1,54 +1,60 @@
 .setPosition(@n) when (@n <= 3) {
-    @position: (3 - @n) * 25%;
+    @position: 50% + (@n - 1) * 20%;
     @rotateY: 90deg / @n * (@n - 1);
     @scale: 1 - 0.25 * (@n - 1);
-    @t1: 50%;
-    @t2: 100%;
-    @t3: 80%;
+    @t1: -50%;
+    @t2: -10px;
+    @t3: -20px;
+    @t: "t@{n}";
+    @zIndex: 99 - @n;
+
+    &.li-@{n} {
+        left: @position;
+        transform-origin: left center;
+        transform: translateX(@@t) rotateY(@rotateY) scale(@scale);
+        z-index: @zIndex;
+    }
+
+    .setPosition(@n + 1);
+}
+.setPosition(@n) when (@n > 3) and (@n <= 14) {
+    @position: (14 - @n) * 10%;
+    @rotateY: 105deg + (@n - 4) * 15deg;
+    @scale: 0.4 - (6 - abs(@n - 9)) * 0.04;
+    @t4: -45px;
+    @t5: -10px;
+    @t6: 0;
+    @t7: 0;
+    @t8: 10px;
+    @t9: 30px;
+    @t10: 60px;
+    @t11: 60px;
+    @t12: 60px;
+    @t13: 60px;
+    @t14: 75px;
     @t: "t@{n}";
 
-    &:nth-child(@{n}) {
-        right: @position;
-        transform: rotateY(@rotateY) scale(@scale) translateX(@@t);
-    }
-
-    .setPosition(@n + 1);
-}
-.setPosition(@n) when (@n > 3) and (@n <= 9) {
-    @position: (@n - 5) * 8.5%;
-    @rotateY: 105deg + (@n - 4) * 15deg;
-    @scale: 0.4 - (@n - 4) * 0.04;
-
-    &:nth-child(@{n}) {
-        right: @position;
-        transform: rotateY(@rotateY) scale(@scale);
-    }
-
-    .setPosition(@n + 1);
-}
-.setPosition(@n) when (@n > 9) and (@n <= 14) {
-    @position: (13 - @n) * 8.5%;
-    @rotateY: (@n - 9) * 15deg - 180deg;
-    @scale: 0.4 - (14 - @n) * 0.04;
-
-    &:nth-child(@{n}) {
+    &.li-@{n} {
         left: @position;
-        transform: rotateY(@rotateY) scale(@scale);
+        transform: translateX(@@t) rotateY(@rotateY) scale(@scale);
     }
 
     .setPosition(@n + 1);
 }
 .setPosition(@n) when (@n > 14) and (@n <= 16) {
-    @position: (@n - 15) * 25%;
+    @position: (@n - 16) * 20%;
     @rotateY: 90deg / (16 - @n + 2) * (16 - @n + 1);
     @scale: 1 - 0.25 * (17 - @n);
-    @t15: -80%;
-    @t16: -100%;
+    @t15: 20px;
+    @t16: 10px;
     @t: "t@{n}";
+    @zIndex: 99 + @n;
 
-    &:nth-child(@{n}) {
+    &.li-@{n} {
         left: @position;
-        transform: rotateY(@rotateY) scale(@scale) translateX(@@t);
+        transform-origin: right center;
+        transform: translateX(@@t) rotateY(@rotateY) scale(@scale);
+        z-index: @zIndex;
     }
 
     .setPosition(@n + 1);
@@ -56,8 +62,8 @@
 
 .carousel {
     position: relative;
-    width: 1900px;
-    max-width: 1000px;
+    width: 1040px;
+    max-width: 1050px;
     margin: 0 auto;
     padding: 20px;
     overflow: hidden;
@@ -98,6 +104,8 @@
         border: 4px solid gold;
         border-radius: 10px;
         overflow: hidden;
+        transform-origin: left center;
+        transition: all .35s ease-in-out;
 
         .setPosition(1);
 
