@@ -6,13 +6,14 @@
     @t2: -10px;
     @t3: -20px;
     @t: "t@{n}";
-    @zIndex: 99 - @n;
+    @opa: 1 - (@n - 1) * 0.25;
 
     &.li-@{n} {
         left: @position;
         transform-origin: left center;
         transform: translateX(@@t) rotateY(@rotateY) scale(@scale);
-        z-index: @zIndex;
+        z-index: 99;
+        opacity: @opa;
     }
 
     .setPosition(@n + 1);
@@ -37,6 +38,8 @@
     &.li-@{n} {
         left: @position;
         transform: translateX(@@t) rotateY(@rotateY) scale(@scale);
+        z-index: 1;
+        opacity: .3;
     }
 
     .setPosition(@n + 1);
@@ -48,13 +51,14 @@
     @t15: 20px;
     @t16: 10px;
     @t: "t@{n}";
-    @zIndex: 99 + @n;
+    @opa: 1 - (17 - @n) * 0.25;
 
     &.li-@{n} {
         left: @position;
         transform-origin: right center;
         transform: translateX(@@t) rotateY(@rotateY) scale(@scale);
-        z-index: @zIndex;
+        z-index: 99;
+        opacity: @opa;
     }
 
     .setPosition(@n + 1);
