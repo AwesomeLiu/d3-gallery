@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import classname from 'classnames';
 
+// 位置优先级
 const carouselOdd = [1, 2, 16, 3, 15, 5, 13, 7, 11, 6, 12, 4, 14, 8, 10];
 const carouselEven = [1, 2, 16, 3, 15, 9, 5, 13, 7, 11, 6, 12, 4, 14, 8, 10];
 
@@ -11,7 +12,7 @@ export default class Carousel extends Component {
     let len = this.props.data.length,
         pos = this.setPosition(len);
     this.state = {
-      position: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+      position: pos
     };
   }
   
