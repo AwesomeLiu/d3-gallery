@@ -7,30 +7,11 @@ const gallery = [
   {
     "id": 1,
     "url": "http://xxx/yyy/zzz",
+    "cover": require("../../assets/doge.jpg")
   },
   {
     "id": 2,
-    "url": "http://aaaa/bbbb/cccc",
-  },
-  {
-    "id": 3,
-    "url": "http://111/222/3333",
-  },
-  {
-    "id": 4,
-    "url": "http://abcd/efg/hijk/lmn",
-  },
-  {
-    "id": 5,
-    "url": "http://mm/nn/pp/qq",
-  },
-  {
-    "id": 6,
-    "url": "http://mm/nn/pp",
-  },
-  {
-    "id": 7,
-    "url": "http://mm/nn/pp",
+    "url": "http://xxx/yyy/zzz",
   },
 ];
 
@@ -44,7 +25,11 @@ class Dashboard extends Component {
         <h1 className={styles.title}>D3 Gallery</h1>
         <Carousel
           data={gallery}
+          autoplay={false}
         />
+        <footer>
+          <p>Design By Ryan</p>
+        </footer>
       </div>
     );
   }

@@ -3,17 +3,33 @@ import styles from './index.less';
 import classname from 'classnames';
 
 // 位置优先级
+// 位置由数字 1 - 16 表示，排列顺序为从正中间开始逆时针旋转一周的排列顺序
 const carouselOdd = [1, 2, 16, 3, 15, 5, 13, 7, 11, 6, 12, 4, 14, 8, 10];
 const carouselEven = [1, 2, 16, 3, 15, 9, 5, 13, 7, 11, 6, 12, 4, 14, 8, 10];
+
+var carouselInterval;
 
 export default class Carousel extends Component {
   constructor(props) {
     super(props);
-    let len = this.props.data.length,
-        pos = this.setPosition(len);
+    let { data } = this.props,
+        pos = this.setPosition(data.length);
     this.state = {
       position: pos
     };
+  }
+
+  componentDidMount() {
+    let { autoplay, duration } = this.props;
+    if (typeof autoplay === 'boolean' && autoplay) {
+      carouselInterval = setInterval(() => {
+        this.goToNextPage();
+      }, duration || 3000);
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(carouselInterval);
   }
   
   setPosition(counter) {
@@ -24,6 +40,7 @@ export default class Carousel extends Component {
     }
   }
 
+  // 逆时针
   goToPrevPage() {
     let { position } = this.state,
         current = position.shift();
@@ -34,6 +51,7 @@ export default class Carousel extends Component {
     });
   }
 
+  // 顺时针
   goToNextPage() {
     let { position } = this.state,
         current = position.pop();
@@ -65,9 +83,7 @@ export default class Carousel extends Component {
             data.map((d, index) =>
               <li key={d.id} className={styles[`li-${position[index]}`]}>
                 <a href={d.url} target="_blank">
-                  {
-                    <img src={require("../../assets/doge.jpg")} />
-                  }
+                  <img src={d.cover} />
                 </a>
               </li>
             )
