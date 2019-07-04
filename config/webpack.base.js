@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const root = path.resolve(__dirname, '../');
 
 module.exports = {
-  entry: path.resolve(root, 'src'),
+  entry: path.resolve(root, 'src/index.js'),
   module: {
     rules: [
       {
@@ -39,7 +39,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Welcome',
       template: './index.html',
-      // favicon: 'path/to/my_favicon.ico'
+      favicon: './src/assets/favicon.ico'
     })
   ],
   resolve: {
