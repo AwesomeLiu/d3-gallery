@@ -27,7 +27,7 @@ module.exports = WebpackMerge(baseConfig, {
                 localIdentName: '[local]-[hash:base64:8]'
               },
             }
-          }, 'less-loader', 'postcss-loader']
+          }, 'postcss-loader', 'less-loader']
         })
       }
     ]
