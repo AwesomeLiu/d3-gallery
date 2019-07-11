@@ -30,7 +30,8 @@ module.exports = webpackMerge(baseConfig, {
   devServer: {
     contentBase: path.resolve(root, 'dist'),
     port: 8080,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.NamedModulesPlugin(),

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './index.less';
 import classname from 'classnames';
 
@@ -6,8 +7,6 @@ import classname from 'classnames';
 // 位置由数字 1 - 16 表示，排列顺序为从正中间开始逆时针旋转一周的排列顺序
 const carouselOdd = [1, 2, 16, 3, 15, 5, 13, 7, 11, 6, 12, 4, 14, 8, 10];
 const carouselEven = [1, 2, 16, 3, 15, 9, 5, 13, 7, 11, 6, 12, 4, 14, 8, 10];
-
-var carouselInterval;
 
 export default class Carousel extends Component {
   constructor(props) {
@@ -22,14 +21,12 @@ export default class Carousel extends Component {
   componentDidMount() {
     let { autoplay, duration } = this.props;
     if (typeof autoplay === 'boolean' && autoplay) {
-      carouselInterval = setInterval(() => {
-        this.goToNextPage();
-      }, duration || 3000);
+      this.carouselInterval = setInterval(() => this.goToNextPage(), duration || 3000);
     }
   }
 
   componentWillUnmount() {
-    clearInterval(carouselInterval);
+    clearInterval(this.carouselInterval);
   }
   
   setPosition(counter) {
@@ -82,9 +79,9 @@ export default class Carousel extends Component {
           {
             data.map((d, index) =>
               <li key={d.id} className={styles[`li-${position[index]}`]}>
-                <a href={d.url} target="_blank">
+                <Link to={d.url} target="_blank">
                   <img src={d.cover} />
-                </a>
+                </Link>
               </li>
             )
           }
