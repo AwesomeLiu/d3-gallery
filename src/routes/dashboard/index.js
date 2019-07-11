@@ -6,13 +6,9 @@ import Carousel from '../../components/carousel/index';
 const gallery = [
   {
     "id": 1,
-    "url": "http://xxx/yyy/zzz",
+    "url": "/gallery/color",
     "cover": require("../../assets/doge.jpg")
-  },
-  {
-    "id": 2,
-    "url": "http://xxx/yyy/zzz",
-  },
+  }
 ];
 
 class Dashboard extends Component {
