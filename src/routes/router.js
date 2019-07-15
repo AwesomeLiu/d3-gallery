@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './dashboard';
+import ErrorPage from './error';
 import Color from './gallery/color';
 
 const Home = () => (<h1>Home</h1>);
@@ -22,12 +23,6 @@ const routes = [
     ]
   }
 ];
-
-const ErrorPage = ({ match }) => (
-  <div>
-    <h3>{match.params.page}</h3>
-  </div>
-);
 
 // 基于 react-router v4及以上版本的嵌套式写法
 // Switch 用于处理404等错误页面

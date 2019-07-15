@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 import logo from '../../assets/logo.png';
-import Carousel from '../../components/carousel/index';
+import { Carousel } from '../../components';
 
 const gallery = [
   {
