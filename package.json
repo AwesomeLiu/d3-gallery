@@ -1,40 +1,39 @@
 {
-<<<<<<< HEAD
-  "name": "febe",
-  "version": "0.2.0",
-  "description": "Frontend Base Environment",
-=======
   "name": "d3gallery",
   "version": "1.0.0",
   "description": "D3 Gallery",
->>>>>>> develop
   "main": "index.js",
   "scripts": {
-    "prod": "webpack --config config/webpack.prod.js",
-    "dev": "webpack-dev-server --config config/webpack.dev.js --open"
+    "start": "npm run start:dev",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js --open",
+    "build": "npm run build:prod",
+    "build:prod": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
-    "d3": "^5.9.2",
-    "lodash": "^4.17.11",
+    "history": "^4.9.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.1.0",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
-    "redux": "^4.0.1"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.6.3",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.2",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.0.0",

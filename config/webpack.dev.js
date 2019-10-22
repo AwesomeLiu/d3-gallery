@@ -6,8 +6,10 @@ const baseConfig = require('./webpack.base');
 const root = path.resolve(__dirname, '../');
 
 module.exports = webpackMerge(baseConfig, {
+  mode: "development",
   output: {
     path: path.resolve(root, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js'
   },
   module: {
@@ -34,6 +36,12 @@ module.exports = webpackMerge(baseConfig, {
     historyApiFallback: true
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify({
+        NODE_ENV: process.env.NODE_ENV,
+        BASE_API_URL: ""
+      })
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
