@@ -1,12 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './normalize.css';
 import './global.less';
-import App from './routes/router.js';
+import styles from './index.less';
+import logo from './assets/logo.png';
 
 const app = document.getElementById('app');
 
-ReactDOM.render(
-  <App />,
-  app
-);
+const indexpage = `
+  <div class=${styles.indexpage}>
+    <div class=${styles.logo_wrapper}>
+      <img src=${logo} alt="logo" />
+    </div>
+    <h1 class=${styles.title}>Frontend Base Environment</h1>
+  </div>
+`;
+
+app.innerHTML = indexpage;
