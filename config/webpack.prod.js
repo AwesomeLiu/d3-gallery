@@ -33,7 +33,7 @@ module.exports = WebpackMerge(baseConfig, {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin([ASSETS_BUILD_PATH], { verbose: false }),
     new UglifyJsPlugin({
       parallel: true
     }),

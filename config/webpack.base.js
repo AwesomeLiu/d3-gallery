@@ -39,14 +39,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Welcome',
       template: './index.html',
-      // favicon: 'path/to/my_favicon.ico'
+      favicon: './src/assets/favicon.ico'
     })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       'src': path.resolve(root, 'src'),
-      'util': path.resolve(root, 'src/util')
+      'util': path.resolve(root, 'src/util'),
+      'assets': path.resolve(root, 'src/assets'),
+      'components': path.resolve(root, 'src/components')
     }
   }
 };
